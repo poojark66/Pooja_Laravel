@@ -52,12 +52,14 @@
         </style>
 
 @foreach($blogs as $blog)
+
     <h3>{{ $blog->title }}</h3>
     <p>{{ $blog->description}}</p>
     <p>
-        <a href="{{ route('show', $blog->id) }}" class="btn btn-info">View Task</a>
-        <a href="{{ route('edit', $blog->id) }}" class="btn btn-primary">Edit Task</a>
-		
+        <a href="{{ route('show', [$blog->id, $id]) }}" class="btn btn-info">View Task</a>
+		@if($id == 1)
+			<a href="{{ route('edit', [$blog->id, $id]) }}" class="btn btn-primary">Edit Task</a>
+		@endif
     </p>
     <hr>
 @endforeach
