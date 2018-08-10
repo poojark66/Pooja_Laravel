@@ -21,4 +21,4 @@ Route::post('/store', array('as' => 'store', 'uses' => 'BlogController@store'));
 Route::get('/index', array('as' => 'index', 'uses' => 'BlogController@index'));
 Route::get('/show/{id}', array('as' => 'show', 'uses' => 'BlogController@show'));
 Route::get('/edit/{id}', array('as' => 'edit', 'uses' => 'BlogController@edit'));
-Route::get('/update/{id}', array('as' => 'update', 'uses' => 'BlogController@update'));
+Route::post('/update/{id}', array('as' => 'update', 'uses' => 'BlogController@update'));
