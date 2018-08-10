@@ -56,7 +56,8 @@
 <p class="lead">{{ $blog->description }}</p>
 <hr>
 
-<a href="{{ route('index') }}" class="btn btn-info">Back to all tasks</a>
-<a href="{{ route('edit', $blog->id) }}" class="btn btn-primary">Edit Task</a>
-
+<a href="{{ route('index', $uid) }}" class="btn btn-info">Back to all tasks</a>
+@if($uid == 1)
+	<a href="{{ route('edit', [$blog->id, $uid]) }}" class="btn btn-primary">Edit Task</a>
+@endif
 
