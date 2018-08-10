@@ -8,11 +8,12 @@ use Session;
 
 class BlogController extends Controller
 {
-	public function index()
+	public function index($id='')
 	{
 		$blogs = Blog::all();
-
-		return view('blogs.index')->withBlogs($blogs);
+		
+		//return view('blogs.index')->withBlogs($blogs);
+		return view('blogs.index', compact(['blogs', 'id']));
 	}
 	
 	public function create()
@@ -36,18 +37,16 @@ class BlogController extends Controller
 		return redirect()->back();
 	}
 	
-	public function show($id)
+	public function show($id, $uid)
 	{
 		$blog = Blog::findOrFail($id);
-	    
-		return view('blogs.show')->withBlog($blog);
+	    return view('blogs.show', compact(['blog', 'uid']));
 	}
 	
-	public function edit($id)
+	public function edit($id, $uid)
 	{
 		$blog = Blog::findOrFail($id);
-
-		return view('blogs.edit')->withBlog($blog);
+		return view('blogs.edit', compact(['blog', 'uid']));
 	}
 	
 	public function update($id, Request $request)
@@ -58,12 +57,12 @@ class BlogController extends Controller
 			'title' => 'required',
 			'description' => 'required'
 		]);
-
+		
 		$input = $request->all();
 		
 		$blog->fill($input)->save();
 
-		Session::flash('flash_message', 'Task successfully added!');
+		Session::flash('flash_message', 'Task successfully updated!');
 
 		return redirect()->back();
 	}
