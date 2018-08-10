@@ -53,7 +53,7 @@
 
 
 <h1>Edit Blog - Blog Name </h1>
-<p class="lead">Edit this blog below. <a href="{{ route('index') }}">Go back to all blogs.</a></p>
+<p class="lead">Edit this blog below. <a href="{{ route('index', $uid) }}">Go back to all blogs.</a></p>
 <hr>
 
 {!! Form::model($blog, [
