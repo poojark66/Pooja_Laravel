@@ -57,7 +57,7 @@
 <hr>
 
 {!! Form::model($blog, [
-    'method' => 'PATCH',
+    'method' => 'post',
     'route' => ['update', $blog->id]
 ]) !!}
 
